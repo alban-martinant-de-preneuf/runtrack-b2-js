@@ -33,7 +33,7 @@ function insert_student(
     string $gender,
     DateTime $birthdate,
     int $gradeId
-) {
+) : bool {
     $query = ("INSERT INTO student (grade_id, email, fullname, birthdate, gender)
         VALUES (:grade_id, :email, :fullname, :birthdate, :gender)"
     );
@@ -46,7 +46,10 @@ function insert_student(
         'gender' => $gender
     ]);
 
-    echo 'Student registed successfully.';
+    if ($success) {
+        echo 'Student registed successfully.';
+        return true;
+    }
 
-    return $success;
+    return false;
 }
