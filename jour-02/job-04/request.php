@@ -49,7 +49,8 @@ function insert_student(
     if ($success) {
         echo 'Student registed successfully.';
         return true;
-    }
-
-    return false;
+    } else {
+        echo 'An error occured.';
+        return false;
+    }   
 }
