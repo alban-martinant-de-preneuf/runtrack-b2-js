@@ -1,6 +1,6 @@
 const html = document.querySelector("html");
 
-function changeColor() {
+function myChangeBackgroundColor() {
     if (window.innerWidth >= 1337) {
         html.style.backgroundColor = "#ffb703";
     } else if (window.innerWidth <= 1336 && window.innerWidth > 505) {
@@ -10,8 +10,6 @@ function changeColor() {
     }
 }
 
-window.addEventListener('resize', () => {
-    changeColor();
-});
+window.addEventListener('resize', myChangeBackgroundColor);
 
-changeColor();
+myChangeBackgroundColor();
