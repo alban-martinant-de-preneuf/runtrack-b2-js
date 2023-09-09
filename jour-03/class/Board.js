@@ -34,9 +34,6 @@ export class Board {
     placeMove(row, col, symbol) {
         if (this.grid[row][col] === "-") {
             this.grid[row][col] = symbol
-            console.log("test")
-            console.log(this.grid[row][col].innerHTML)
-            this.displayBoard()
             return true
         }
         return false
@@ -60,9 +57,9 @@ export class Board {
                 }
             }
             // verify diagonals
-            const diag1 = this.grid[0][0] === playerSymbol && this.grid[1][1] === playerSymbol && this.grid[2][2] === playerSymbol;
-            const diag2 = this.grid[0][2] === playerSymbol && this.grid[1][1] === playerSymbol && this.grid[2][0] === playerSymbol;
-            if (diag1 || diag2) {
+            const isDiag1 = this.grid[0][0] === playerSymbol && this.grid[1][1] === playerSymbol && this.grid[2][2] === playerSymbol;
+            const isDiag2 = this.grid[0][2] === playerSymbol && this.grid[1][1] === playerSymbol && this.grid[2][0] === playerSymbol;
+            if (isDiag1 || isDiag2) {
                 this.hasWinner = true
                 return true
             }
@@ -71,9 +68,9 @@ export class Board {
     }
 
 
-    isfull() {
+    isFull() {
         for (let i = 0; i < 3; i++) {
-            for (let j = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
                 if (this.grid[i][j] === "-") {
                     return false
                 }
